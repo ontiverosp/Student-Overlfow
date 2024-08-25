@@ -1,0 +1,16 @@
+{% extends "base.html"%}
+{% block title %}Student Overlfow - Home{% endblock %}
+{% block content %}
+<h1 align="center">Home</h1>
+{% if questions|length == 0 %}
+<br>
+<h3>It looks like you nobody has akend any questions yet! </h3>
+{% endif %}
+<ul class="list-group" id="notes">
+    {% for question in questions %}
+    <li class="list-group-item list-group-item-action"  onClick="toQuestion({{ question.id }})" >
+        {{ question.question }}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

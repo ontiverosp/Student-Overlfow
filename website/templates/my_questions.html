@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+{% block title %}Student Overlfow - My Questions{% endblock %}
+{% block content %}
+<h1 align="center">My Questions</h1>
+<br>
+{% if user.questions|length == 0 %}
+    <h3>It looks like you havent asked any  questions yet! </h3>
+    <br>
+    <p>To ask a question click on "Ask" in the navigation bar at the top of the page.</p>
+{% endif %}
+<ul class="list-group" id="questions">
+  {% for question in user.questions %}
+  <li class="list-group-item">
+    {{ question.question }}
+
+    <button type="button" class="close" onClick="deleteQuestion({{ question.id }})">
+        <span aria-hidden="true">DELETE</span>
+    </button>
+    <button type="button" class="close" onClick="editQuestion({{ question.id }})">
+        <span aria-hidden="true"> EDIT |</span>
+    </button>
+    <button type="button" class="close" onClick="toQuestion({{ question.id }})">
+        <span aria-hidden="true">GO |</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

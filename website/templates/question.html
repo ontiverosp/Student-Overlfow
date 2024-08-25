@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block title %}Student Overlfow - Home{% endblock %}
+{% block content %}
+<h1 align="center">Question</h1>
+<br>
+<h3>{{ question.question }}</h3>
+<br>
+<p>{{question.data}}</p>
+
+<h3 align="center">Answer the Question</h3>
+<form method="POST">
+    <div class="form-group">
+        <label for="answer">Post an answer</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="answer"
+          name="answer"
+          placeholder="Enter the Answer to the question"
+        ></textarea>
+      </div>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Answer Question</button>
+  </div>
+</form>
+<br>
+<h3 align="center">Answers</h3>
+<ul class="list-group" id="notes">
+    {% if answers|length == 0 %}
+    <li class="list-group-item">
+        Sorry. Nobody has answered this question yet.
+      </li>
+    {% endif %}
+    {% for answer in answers %}
+    <li class="list-group-item">
+      {{ answer.answer }}
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

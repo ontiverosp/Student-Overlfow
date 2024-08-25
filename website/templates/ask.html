@@ -1,0 +1,32 @@
+{% extends "base.html"%}
+{% block title %}Student Overlfow - ASK{% endblock %}
+{% block content %}
+<h1 align="center">Ask a Question</h1>
+<form method="POST">
+    <div class="form-group">
+      <label for="question">Question</label>
+      <input
+        type="text"
+        class="form-control"
+        id="question"
+        name="question"
+        placeholder="Enter Question"
+      />
+    </div>
+    <div class="form-group">
+        <label for="question">Details</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="data"
+          name="data"
+          placeholder="Enter the Details of your question"
+          rows="15"
+        ></textarea>
+      </div>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Ask Question</button>
+  </div>
+</form>
+{% endblock %}
